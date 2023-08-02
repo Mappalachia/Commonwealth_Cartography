@@ -385,6 +385,7 @@ namespace CommonwealthCartography
 				"Jet",
 				"San Francisco Sunlights",
 				"Synth",
+				"PerkMag",
 			};
 
 			textBoxSearch.Text = searchTermHints[new Random().Next(searchTermHints.Count)];
@@ -1764,7 +1765,8 @@ namespace CommonwealthCartography
 				if (rejectedItemsOtherSpace.Count > 0)
 				{
 					message += "\n\nItems from search results can only be mapped if they belong to the currently selected space. " +
-						"To find results only in the selected space, ensure 'Search Settings > Search in all Spaces' is toggled off.";
+						"To find results only in the selected space, ensure 'Search Settings > Search in all Spaces' is toggled off.\n" +
+						"Alternatively double-click the name of the space in the Location column to quick-swap to that space.";
 				}
 
 				// Add a line to say that a further x items (not shown) were not added

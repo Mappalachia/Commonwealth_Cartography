@@ -50,7 +50,7 @@ namespace CommonwealthCartography
 			// SettingsMap
 			settings.Add("[Map]");
 			settings.Add("brightness=" + SettingsMap.brightness);
-			settings.Add("CommonwealthBackground=" + SettingsMap.background);
+			settings.Add("WorldspaceBackground=" + SettingsMap.background);
 			settings.Add("highlightWater=" + BoolToIntStr(SettingsMap.highlightWater));
 			settings.Add("grayScale=" + BoolToIntStr(SettingsMap.grayScale));
 			settings.Add("showMapLabels=" + BoolToIntStr(SettingsMap.showMapLabels));
@@ -164,7 +164,7 @@ namespace CommonwealthCartography
 
 							break;
 
-						case "CommonwealthBackground":
+						case "WorldspaceBackground":
 							switch (value)
 							{
 								case "Normal":

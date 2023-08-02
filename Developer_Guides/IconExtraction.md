@@ -28,7 +28,7 @@ If errors appear, select 'Ignore All'. The bottom-left of the window will indica
 This should now populate a `sprites` folder filled with around 50 sub-folders all prefixed "DefineSprite".<br/>
 <br/>
 Repeat the above again but for the file `Pipboy_MapPage.swf`. This will overwrite some but not all of the previously extracted icons.<br/>
-Deleted the extracted folder `DefineSprite_69_MetroMarker` as this conflicts with the correct version of the Metro marker.
+Delete the extracted folder `DefineSprite_69_MetroMarker` as this conflicts with the correct version of the Metro marker.
 
 
 ## MapIconProcessor
