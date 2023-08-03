@@ -6,7 +6,7 @@ A sister of Fallout 76's Mappalachia, Commonwealth Cartography is a Windows appl
 [![Latest release](https://img.shields.io/github/downloads/Mappalachia/Commonwealth_Cartography/total)](https://github.com/Mappalachia/Commonwealth_Cartography/releases/latest)<br>
 ![](https://img.shields.io/github/last-commit/Mappalachia/Commonwealth_Cartography)<br/>
 [![Latest release](https://img.shields.io/github/v/release/Mappalachia/Commonwealth_Cartography)](https://github.com/Mappalachia/Commonwealth_Cartography/releases/latest)<br/>
-![](https://img.shields.io/badge/game%20version-1.10.163.0.0-green)<br/>
+![](https://img.shields.io/badge/game%20version-1.10.163.0-green)<br/>
 [![Discord](https://img.shields.io/discord/1029499482028646400?label=Discord&logo=Discord)](https://discord.gg/Z2GMpm6rad)<br/>
 [![License](https://img.shields.io/github/license/Mappalachia/Commonwealth_Cartography)](LICENSE.md)
 
@@ -22,7 +22,7 @@ A number of User guides exist for Commonwealth Cartography in document form;<br/
 * [**Installation and First run**](User_Guides/Installation_and_first_run.md) covers initial installation and getting Commonwealth Cartography running.
 * [**First map**](User_Guides/First_map.md) explains the basic steps to creating your first Commonwealth Cartography map and other core features.
 * [**Customization Options**](User_Guides/Customization.md) covers all the various customization and visual options for your map.
-* [**Advanced Searching**](User_Guides/Advanced_searching.md) explains the intelligent NPC, Scrap and Region search functions, as well as using filters to find exactly what you need.
+* [**Advanced Searching**](User_Guides/Advanced_searching.md) explains the Scrap and Region search functions, plus misc additional NPC searching, as well as using filters to find exactly what you need.
 * [**Advanced Plotting**](User_Guides/Advanced_plotting.md) details the powerful cluster mode, as well as topographical and heatmap plotting, item grouping and volume mapping.
 * [**Interiors and other Spaces**](User_Guides/Choosing_spaces.md) explains the mapping of other spaces such as interiors.
 

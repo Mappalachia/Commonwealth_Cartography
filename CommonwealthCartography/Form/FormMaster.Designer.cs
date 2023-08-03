@@ -90,6 +90,7 @@ namespace CommonwealthCartography
 			userGuidesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			viaDiscordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			donateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			viaKoFiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			donatePatreonMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			donatePayPalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			joinDiscordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,7 +152,6 @@ namespace CommonwealthCartography
 			toolTipControls = new System.Windows.Forms.ToolTip(components);
 			progressBarMain = new System.Windows.Forms.ProgressBar();
 			labelProgressBar = new System.Windows.Forms.Label();
-			viaKoFiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			menuStripMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)gridViewSearchResults).BeginInit();
 			((System.ComponentModel.ISupportInitialize)gridViewLegend).BeginInit();
@@ -636,10 +636,18 @@ namespace CommonwealthCartography
 			donateMenuItem.Text = "Donate to the Author";
 			donateMenuItem.ToolTipText = "Say thanks and support the project with a small donation.";
 			// 
+			// viaKoFiToolStripMenuItem
+			// 
+			viaKoFiToolStripMenuItem.Name = "viaKoFiToolStripMenuItem";
+			viaKoFiToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			viaKoFiToolStripMenuItem.Text = "Via Ko-Fi";
+			viaKoFiToolStripMenuItem.ToolTipText = "Support the project via Ko-Fi.";
+			viaKoFiToolStripMenuItem.Click += Donate_ViaKoFi;
+			// 
 			// donatePatreonMenuItem
 			// 
 			donatePatreonMenuItem.Name = "donatePatreonMenuItem";
-			donatePatreonMenuItem.Size = new System.Drawing.Size(180, 22);
+			donatePatreonMenuItem.Size = new System.Drawing.Size(134, 22);
 			donatePatreonMenuItem.Text = "Via Patreon";
 			donatePatreonMenuItem.ToolTipText = "Support the project via Patreon.";
 			donatePatreonMenuItem.Click += Donate_ViaPatreon;
@@ -647,7 +655,7 @@ namespace CommonwealthCartography
 			// donatePayPalMenuItem
 			// 
 			donatePayPalMenuItem.Name = "donatePayPalMenuItem";
-			donatePayPalMenuItem.Size = new System.Drawing.Size(180, 22);
+			donatePayPalMenuItem.Size = new System.Drawing.Size(134, 22);
 			donatePayPalMenuItem.Text = "Via PayPal";
 			donatePayPalMenuItem.ToolTipText = "Support the project via Patreon.";
 			donatePayPalMenuItem.Click += Donate_ViaPayPal;
@@ -1221,13 +1229,13 @@ namespace CommonwealthCartography
 			tabPageNpcScrapRegionSearch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			tabPageNpcScrapRegionSearch.Size = new System.Drawing.Size(604, 264);
 			tabPageNpcScrapRegionSearch.TabIndex = 1;
-			tabPageNpcScrapRegionSearch.Text = "NPC/Scrap/Region Search";
+			tabPageNpcScrapRegionSearch.Text = "Region/Scrap/NPC Search";
 			// 
 			// groupBoxRegionSearch
 			// 
 			groupBoxRegionSearch.Controls.Add(textBoxRegionSearch);
 			groupBoxRegionSearch.Controls.Add(buttonRegionSearch);
-			groupBoxRegionSearch.Location = new System.Drawing.Point(383, 6);
+			groupBoxRegionSearch.Location = new System.Drawing.Point(7, 6);
 			groupBoxRegionSearch.Name = "groupBoxRegionSearch";
 			groupBoxRegionSearch.Size = new System.Drawing.Size(214, 89);
 			groupBoxRegionSearch.TabIndex = 8;
@@ -1264,7 +1272,7 @@ namespace CommonwealthCartography
 			// 
 			groupBoxScrapSearch.Controls.Add(listBoxScrap);
 			groupBoxScrapSearch.Controls.Add(buttonSearchScrap);
-			groupBoxScrapSearch.Location = new System.Drawing.Point(196, 6);
+			groupBoxScrapSearch.Location = new System.Drawing.Point(228, 6);
 			groupBoxScrapSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			groupBoxScrapSearch.Name = "groupBoxScrapSearch";
 			groupBoxScrapSearch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1278,20 +1286,20 @@ namespace CommonwealthCartography
 			// 
 			groupBoxNPCSearch.Controls.Add(listBoxNPC);
 			groupBoxNPCSearch.Controls.Add(buttonSearchNPC);
-			groupBoxNPCSearch.Location = new System.Drawing.Point(8, 6);
+			groupBoxNPCSearch.Location = new System.Drawing.Point(416, 6);
 			groupBoxNPCSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			groupBoxNPCSearch.Name = "groupBoxNPCSearch";
 			groupBoxNPCSearch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			groupBoxNPCSearch.Size = new System.Drawing.Size(180, 246);
 			groupBoxNPCSearch.TabIndex = 6;
 			groupBoxNPCSearch.TabStop = false;
-			groupBoxNPCSearch.Text = "NPC Search";
-			toolTipControls.SetToolTip(groupBoxNPCSearch, "Search for all spawns of an NPC (Both variable and guaranteed spawns).");
+			groupBoxNPCSearch.Text = "Extra NPC Search";
+			toolTipControls.SetToolTip(groupBoxNPCSearch, "Search for misc additional NPC spawns.");
 			// 
 			// pictureBoxMapPreview
 			// 
 			pictureBoxMapPreview.Anchor = System.Windows.Forms.AnchorStyles.None;
-			pictureBoxMapPreview.Location = new System.Drawing.Point(-12, 0);
+			pictureBoxMapPreview.Location = new System.Drawing.Point(-14, 0);
 			pictureBoxMapPreview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			pictureBoxMapPreview.Name = "pictureBoxMapPreview";
 			pictureBoxMapPreview.Size = new System.Drawing.Size(820, 820);
@@ -1395,14 +1403,6 @@ namespace CommonwealthCartography
 			labelProgressBar.TabIndex = 8;
 			labelProgressBar.Text = "Ready";
 			labelProgressBar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// viaKoFiToolStripMenuItem
-			// 
-			viaKoFiToolStripMenuItem.Name = "viaKoFiToolStripMenuItem";
-			viaKoFiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			viaKoFiToolStripMenuItem.Text = "Via Ko-Fi";
-			viaKoFiToolStripMenuItem.ToolTipText = "Support the project via Ko-Fi.";
-			viaKoFiToolStripMenuItem.Click += Donate_ViaKoFi;
 			// 
 			// FormMaster
 			// 
