@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace Mappalachia
+namespace CommonwealthCartography
 {
-    internal class GenericCSVHelper
-    {
+	internal class GenericCSVHelper
+	{
 		// Returns a copy of the given CSV with a new column added, copied from another
 		public static CSVFile DuplicateColumn(CSVFile inputFile, string sourceColumn, string newColumn)
 		{

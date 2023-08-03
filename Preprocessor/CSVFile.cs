@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mappalachia
+namespace CommonwealthCartography
 {
 	class CSVFile
 	{
@@ -16,11 +16,21 @@ namespace Mappalachia
 		{
 			this.fileName = fileName.Split('/').Last();
 
-			header = new List<string>(File.ReadLines(fileName).First().Split(','));
+			header = new List<string>(File.ReadLines(fileName.Replace(".csv", "_0.csv")).First().Split(','));
 
-			foreach (string row in File.ReadLines(fileName).Skip(1))
+			for (int i = 0; i <= 7; i++)
 			{
-				rows.Add(new CSVRow(row, header));
+				string targetFile = fileName.Replace(".csv", "_" + i + ".csv");
+
+				if (!File.Exists(targetFile))
+				{
+					continue;
+				}
+
+				foreach (string row in File.ReadLines(targetFile).Skip(1))
+				{
+					rows.Add(new CSVRow(row, header));
+				}
 			}
 		}
 

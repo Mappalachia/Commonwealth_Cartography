@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Mappalachia
+namespace CommonwealthCartography
 {
 	class CSVCell
 	{
@@ -194,6 +194,7 @@ namespace Mappalachia
 				case "componentQuantity":
 				case "regionNum":
 				case "coordNum":
+				case "esmNumber":
 					// Coordinates, offsets and counts must be exactly integers
 					if (!int.TryParse(data, out _))
 					{
@@ -227,15 +228,6 @@ namespace Mappalachia
 				case "lockLevel":
 					// Lock level must come from a set of strings or be empty
 					if (data != string.Empty && !Validation.validLockLevel.IsMatch(data))
-					{
-						ReportValidationError();
-					}
-
-					return;
-
-				case "spawnClass":
-					// Class (monster) can only be two exact strings or empty
-					if (data != string.Empty && !Validation.validNpcClass.IsMatch(data))
 					{
 						ReportValidationError();
 					}

@@ -4,10 +4,12 @@
 	{
 		public string formID;
 		public string editorID;
+		public bool isWorldspace;
 		public int xCenter;
 		public int yCenter;
 		public int xRange;
 		public int yRange;
+		public int esmNumber;
 
 		/* custom 'nudge' values - auto-centering some cells has undesirable consequences
 		because unreachable assets are placed far away from the playable area.
@@ -20,14 +22,16 @@
 		public int nudgeY;
 		public float nudgeScale;
 
-		public Space(string formID, string editorID, int xCenter, int yCenter, int xRange, int yRange, int nudgeX, int nudgeY, float nudgeScale)
+		public Space(string formID, string editorID, bool isWorldspace, int xCenter, int yCenter, int xRange, int yRange, int nudgeX, int nudgeY, float nudgeScale, int esmNumber)
 		{
 			this.formID = formID;
 			this.editorID = editorID;
+			this.isWorldspace = isWorldspace;
 			this.xCenter = xCenter;
 			this.yCenter = yCenter;
 			this.xRange = xRange;
 			this.yRange = yRange;
+			this.esmNumber = esmNumber;
 
 			this.nudgeX = nudgeX;
 			this.nudgeY = nudgeY;

@@ -1,33 +1,28 @@
 ﻿using System.Text.RegularExpressions;
 using Microsoft.Data.Sqlite;
 
-namespace Mappalachia
+namespace CommonwealthCartography
 {
 	static class MapIconProcessor
 	{
-		const string mappalachiaRoot = @"..\\..\\..\\..\\";
+		const string commonwealthCartographyRoot = @"..\\..\\..\\..\\";
 
-		const string databasePath = mappalachiaRoot + @"Mappalachia\\data\\mappalachia.db";
-		const string mapIconProcessorPath = mappalachiaRoot + @"MapIconProcessor\\";
+		const string databasePath = commonwealthCartographyRoot + @"CommonwealthCartography\\data\\commonwealth_cartography.db";
+		const string mapIconProcessorPath = commonwealthCartographyRoot + @"MapIconProcessor\\";
 
 		const string extractPath = mapIconProcessorPath + @"extract\\sprites";
-		const string outputPath = mappalachiaRoot + @"\\Mappalachia\\img\\mapmarker";
+		const string outputPath = commonwealthCartographyRoot + @"\\CommonwealthCartography\\img\\mapmarker";
 		const string missingMarkersFile = outputPath + @"\\MissingMarkers.error";
 		const string fileExtension = ".svg";
 
-		static readonly Regex validIconFolder = new Regex(extractPath + @"\\DefineSprite_[0-9]{2,3}_(([A-Z].*Marker)|WhitespringResort|NukaColaQuantumPlant|TrainTrackMark)$");
-
-		const string workshopMarker = "PublicWorkshopMarker"; // This icon needs special handling
+		static readonly Regex validIconFolder = new Regex(extractPath + @"\\DefineSprite_[0-9]{1,3}_([A-Z].*Marker)$");
 
 		static void Main()
 		{
 			// Cleanup prior run, removing all icons (Except the special case)
 			foreach (string file in Directory.GetFiles(outputPath))
 			{
-				if (Path.GetFileName(file) != workshopMarker + fileExtension)
-				{
-					File.Delete(file);
-				}
+				File.Delete(file);
 			}
 
 			List<string> mapMarkers = new List<string>();
@@ -43,6 +38,7 @@ namespace Mappalachia
 			while (reader.Read())
 			{
 				mapMarkers.Add(reader.GetString(0));
+				Console.WriteLine(reader.GetString(0));
 			}
 
 			// Map marker names from the database, along with a bool indicating if they're accounted for
@@ -75,14 +71,6 @@ namespace Mappalachia
 					continue;
 				}
 
-				// Don't copy this marker because we don't want to overwrite some edits manually made to it
-				if (iconName == workshopMarker)
-				{
-					Console.WriteLine($"\n## {workshopMarker} is required but we will not copy the file!\n");
-					requiredMarkerNames[workshopMarker] = true; // Mark as checked
-					continue;
-				}
-
 				// Looks like we want this icon - copy and rename appropriately
 				try
 				{
@@ -102,7 +90,7 @@ namespace Mappalachia
 			{
 				if (marker.Value == false)
 				{
-					Console.WriteLine("ERROR: File for marker " + marker.Key + " was not found anywhere in any appropriately named subfolder of the extract folder.");
+					Console.WriteLine("ERROR: File for marker " + marker.Key + " was not found anywhere in any appropriately named subfolder of the extract folder.\n");
 					File.AppendAllText(missingMarkersFile, marker.Key + "\n");
 				}
 			}
