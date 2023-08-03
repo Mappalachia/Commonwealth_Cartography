@@ -171,6 +171,7 @@ spaceFormID,spaceEditorID,spaceDisplayName,isWorldspace,esmNumber
 00072E35,PackInLanternStorageCell,,0,0
 000A139D,PackInLvlFeralGhoulAggro512MantelPackInStorageCell,,0,0
 000B35D9,PackInDummy_HandmadeGun_Rifle_ScopeStorageCell,,0,0
+000ECCFD,PrewarTVStudio,Colonial's Department Store,0,0
 00146631,PackInTrapGunWallHorizPistolPackinStorageCellDUPLICATE002,,0,0
 001466F9,PackInTrapGunWallVertRiflePackinStorageCell,,0,0
 0018158D,COPY0142,,0,0
@@ -410,6 +411,7 @@ spaceFormID,spaceEditorID,spaceDisplayName,isWorldspace,esmNumber
 0019905A,PackInDummy_Weap_LaserGunBlue_AutomaticStorageCell,,0,0
 0020C672,,,0,0
 0001D118,COPY0259,,0,0
+000336E8,ThicketExcavations01,Thicket Excavations,0,0
 00083FF8,PackInLvlBloatflyAmbushGroundPackInStorageCell,,0,0
 0008F59C,PackInCeilingLightHangingCageShortStorageCell,,0,0
 000B35C8,PackInDummy_Food_PackagedStorageCell,,0,0
@@ -616,6 +618,7 @@ spaceFormID,spaceEditorID,spaceDisplayName,isWorldspace,esmNumber
 001DFAF2,,,0,0
 00203B1E,,,0,0
 0020F05E,,,0,0
+0001F398,SanctuaryRosaHouse,Rosa Residence,0,0
 00155870,COPY0063,,0,0
 001A45C4,COPY0243,,0,0
 001DFAFC,,,0,0

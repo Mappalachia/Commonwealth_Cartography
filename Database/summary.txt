@@ -3,9 +3,9 @@ commonwealth_cartography.db
 ==SQLite version== 
 3.42.0 2023-05-16 12:36:15 831d0fb2836b71c9bc51067c49fee4b8f18047814f2ff22d817d25195cf350b0
 ==Checksum== 
-ad11e60c622cdbbf46e2e6c4d952223b
+6ca6d4065d21efe0d92c13c7f7cb8d85
 ==File Size== 
-211582976 
+211533824 
 ==Tables== 
 Entity_Info      Map_Markers      Region           Standard_Search
 Game_Version     NPC_Search       Scrap_Search   
@@ -16,25 +16,25 @@ Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace
 ==Game Version==
 1.10.163.0
 ==Mean Average X/Y/Z Coord==
--3.76795097812326|178.916955951554|1353.88057582441
+-3.79508283211987|178.841153624905|1353.98640511663
 ==Min/Max X/Y/Z Coord==
 -213381|316690|-235522|169181|-141089|27662
 ==100 most common xyz coordinates + count==
-0|0|0|644
-0|256|0|55
-0|512|0|47
-256|256|0|45
--256|256|0|42
+0|0|0|643
+0|256|0|53
+0|512|0|45
+256|256|0|42
+-256|256|0|40
 486|-18721|472|39
 0|768|0|37
 256|512|0|37
 256|768|0|37
-256|0|0|35
--256|0|0|34
-0|-256|0|34
 -512|512|0|33
+-256|0|0|33
+256|0|0|33
 256|1024|0|33
 512|512|0|33
+0|-256|0|32
 -512|256|0|31
 -512|768|0|31
 -256|512|0|30
@@ -53,15 +53,14 @@ Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace
 512|-256|0|25
 -768|256|0|24
 -512|1024|0|24
--256|-256|0|24
 -256|1024|0|24
 -256|1280|0|24
-256|-256|0|24
 512|0|0|24
 -768|1024|0|23
 -512|1792|0|23
 -768|1280|0|22
 -768|1536|0|22
+-256|-256|0|22
 256|1536|0|22
 512|-256|512|22
 512|1024|0|22
@@ -74,6 +73,7 @@ Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace
 0|256|1024|21
 0|1792|0|21
 256|-1536|0|21
+256|-256|0|21
 768|768|0|21
 1792|512|0|21
 22545|-42132|773|21
@@ -123,17 +123,17 @@ Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace
 ==Z outliers==
 49
 ==Average X Bounds Width==
-11.932215445771
+11.9332997489111
 ==Average Y Bounds Width==
-9.21750933652795
+9.21865047352901
 ==Average Z Bounds Width==
-7.53281454910129
+7.53328488553498
 ==Average Z Rotation==
-2.02906462284057
+2.02934779278865
 ==Average display name string length==
-2.75507047095222
+2.75597674658594
 ==Average editorID string length==
-22.3312134754211
+22.3343194248564
 ==Map Markers==
 Commonwealth|AirfieldMarker|Boston Airport|48074|-3332
 Commonwealth|AirfieldMarker|Skylanes Flight 1665|-64854|-125006
@@ -551,7 +551,7 @@ NukaWorld|TownRuinsMarker|Nuka-Town USA|596|-21444
 NukaWorldAmphitheater|PackMarker|Bradberton Amphitheater|-2883|-18843
 NukaWorldMarket|TownRuinsMarker|Nuka-Town Market|478|-18702
 ==Total Unique entities==
-29084
+29065
 ==Regions==
 Space|Region|subRegions|maxVerts
 Commonwealth||1|5
@@ -1328,7 +1328,6 @@ PoseidonEnergy02|Plane|18
 PoseidonReservoir01||1479
 PoseidonReservoir01|Box|19
 PoseidonReservoir01|Plane|3
-PrewarTVStudio||177
 PrewarVault111||919
 PrewarVault111|Box|55
 PrewarVault111|Plane|19
@@ -1381,7 +1380,6 @@ SanctuaryBasementJahani|Box|1
 SanctuaryHillsWorld||4199
 SanctuaryHillsWorld|Box|110
 SanctuaryHillsWorld|Plane|21
-SanctuaryRosaHouse||30
 SandyCovesHome01||2708
 SandyCovesHome01|Box|46
 SandyCovesHome01|Plane|4
@@ -1440,8 +1438,6 @@ TheaterMassBayMedicalCenter01||3026
 TheaterMassBayMedicalCenter01|Box|84
 TheaterMassBayMedicalCenter02||1596
 TheaterMassBayMedicalCenter02|Box|50
-ThicketExcavations01||37
-ThicketExcavations01|Box|2
 TiconderogaStation01||2910
 TiconderogaStation01|Box|39
 TiconderogaStation01|Ellipsoid|1
@@ -2271,7 +2267,6 @@ PoseidonReservoir01||1496
 PoseidonReservoir01|Expert|1
 PoseidonReservoir01|Master|1
 PoseidonReservoir01|Novice 1|3
-PrewarTVStudio||177
 PrewarVault111||989
 PrewarVault111|Inaccessible|4
 PrydwenHull01||4483
@@ -2321,7 +2316,6 @@ RevereBeachStation01|Novice 1|6
 SanctuaryBasementJahani||216
 SanctuaryBasementJahani|Advanced|1
 SanctuaryHillsWorld||4330
-SanctuaryRosaHouse||30
 SandyCovesHome01||2749
 SandyCovesHome01|Novice 1|2
 SandyCovesHome01|Novice 25|1
@@ -2390,8 +2384,6 @@ TheaterMassBayMedicalCenter01|Novice 1|3
 TheaterMassBayMedicalCenter01|Novice 25|2
 TheaterMassBayMedicalCenter02||1644
 TheaterMassBayMedicalCenter02|Novice 1|2
-ThicketExcavations01||38
-ThicketExcavations01|Requires Key|1
 TiconderogaStation01||2946
 TiconderogaStation01|Advanced|1
 TiconderogaStation01|Expert|3
@@ -6657,18 +6649,6 @@ PoseidonReservoir01|SOUN|1
 PoseidonReservoir01|STAT|1095
 PoseidonReservoir01|TERM|1
 PoseidonReservoir01|TXST|27
-PrewarTVStudio|ACTI|1
-PrewarTVStudio|ALCH|19
-PrewarTVStudio|ARMO|1
-PrewarTVStudio|CONT|6
-PrewarTVStudio|DOOR|7
-PrewarTVStudio|FURN|1
-PrewarTVStudio|LIGH|7
-PrewarTVStudio|MISC|30
-PrewarTVStudio|MSTT|28
-PrewarTVStudio|NPC_|2
-PrewarTVStudio|SOUN|1
-PrewarTVStudio|STAT|74
 PrewarVault111|ACTI|22
 PrewarVault111|ASPC|1
 PrewarVault111|DOOR|22
@@ -6979,9 +6959,6 @@ SanctuaryHillsWorld|SCOL|70
 SanctuaryHillsWorld|SOUN|12
 SanctuaryHillsWorld|STAT|3727
 SanctuaryHillsWorld|TXST|11
-SanctuaryRosaHouse|DOOR|1
-SanctuaryRosaHouse|LIGH|1
-SanctuaryRosaHouse|STAT|28
 SandyCovesHome01|ACTI|30
 SandyCovesHome01|ALCH|25
 SandyCovesHome01|AMMO|1
@@ -7380,13 +7357,6 @@ TheaterMassBayMedicalCenter02|SOUN|2
 TheaterMassBayMedicalCenter02|STAT|1318
 TheaterMassBayMedicalCenter02|TXST|119
 TheaterMassBayMedicalCenter02|WEAP|1
-ThicketExcavations01|ACTI|2
-ThicketExcavations01|DOOR|2
-ThicketExcavations01|FURN|1
-ThicketExcavations01|HAZD|4
-ThicketExcavations01|LIGH|4
-ThicketExcavations01|SCOL|8
-ThicketExcavations01|STAT|18
 TiconderogaStation01|ACTI|38
 TiconderogaStation01|ALCH|22
 TiconderogaStation01|AMMO|1
@@ -17625,10 +17595,6 @@ PoseidonReservoir01|AO_Comment_Creepy_128_012|1
 PoseidonReservoir01|AO_Comment_Dark_128_010|1
 PoseidonReservoir01|AO_Comment_Watery_256_006|1
 PoseidonReservoir01|DN104SideRoomEnableMarker|1
-PrewarTVStudio||174
-PrewarTVStudio|MQ101PlayerHouseDoorREF001|1
-PrewarTVStudio|newscasterREF|1
-PrewarTVStudio|rec|1
 PrewarVault111||927
 PrewarVault111|MQ101AbleEndMarker|1
 PrewarVault111|MQ101AbleEndMarker001|1
@@ -18189,7 +18155,6 @@ SanctuaryHillsWorld|VertibirdBSoldier01MoveForwardMarker|1
 SanctuaryHillsWorld|VertibirdBSoldier02MoveForwardMarker|1
 SanctuaryHillsWorld|testMQcollider|1
 SanctuaryHillsWorld|tower002|1
-SanctuaryRosaHouse||30
 SandyCovesHome01||2742
 SandyCovesHome01|AO_Comment_Creepy_128_018|1
 SandyCovesHome01|AO_Comment_Creepy_128_019|1
@@ -18406,7 +18371,6 @@ TheaterMassBayMedicalCenter01|MassBayMedicalIntToParking|1
 TheaterMassBayMedicalCenter02||1644
 TheaterMassBayMedicalCenter02|MassBayMedicalUpperToLower|1
 TheaterMassBayMedicalCenter02|MassBayMedicalUpperToRoof|1
-ThicketExcavations01||39
 TiconderogaStation01||2932
 TiconderogaStation01|AO_Comment_Gory_128_003|1
 TiconderogaStation01|AO_Comment_Unique_512_023|1
@@ -19200,7 +19164,6 @@ PickmanGallery01|100|4640
 PoseidonEnergy01|100|3556
 PoseidonEnergy02|100|2587
 PoseidonReservoir01|100|1501
-PrewarTVStudio|100|177
 PrewarVault111|100|993
 PrydwenHull01|100|4488
 PrydwenHull02|100|596
@@ -19225,7 +19188,6 @@ RelayTowerInt17|100|137
 RevereBeachStation01|100|2831
 SanctuaryBasementJahani|100|217
 SanctuaryHillsWorld|100|4330
-SanctuaryRosaHouse|100|30
 SandyCovesHome01|100|2758
 SaugusIronworks01|100|3586
 SaugusIronworks02|100|799
@@ -19248,7 +19210,6 @@ Theater27TickerTapeLounge|100|1037
 TheaterHub360|100|1460
 TheaterMassBayMedicalCenter01|100|3110
 TheaterMassBayMedicalCenter02|100|1646
-ThicketExcavations01|100|39
 TiconderogaStation01|100|2952
 TrinityChurch01|100|2625
 TrinityTower01|100|2415
@@ -23365,22 +23326,6 @@ PoseidonReservoir01|Screw|3|2
 PoseidonReservoir01|Spring|6|5
 PoseidonReservoir01|Steel|58|26
 PoseidonReservoir01|Wood|14|12
-PrewarTVStudio|Acid|1|1
-PrewarTVStudio|Adhesive|1|1
-PrewarTVStudio|Antiseptic|2|1
-PrewarTVStudio|Asbestos|7|5
-PrewarTVStudio|Ceramic|8|4
-PrewarTVStudio|Cloth|19|7
-PrewarTVStudio|Copper|5|2
-PrewarTVStudio|Cork|2|1
-PrewarTVStudio|Fiberglass|1|1
-PrewarTVStudio|Glass|5|4
-PrewarTVStudio|Oil|1|1
-PrewarTVStudio|Plastic|12|7
-PrewarTVStudio|Screw|1|1
-PrewarTVStudio|Spring|5|3
-PrewarTVStudio|Steel|19|10
-PrewarTVStudio|Wood|2|1
 PrewarVault111|Ceramic|1|1
 PrewarVault111|Spring|2|1
 PrewarVault111|Wood|1|1
@@ -24756,7 +24701,6 @@ TheCastle01|Mirelurk|100.0|1
 00017E4D|TrinityTower01|Trinity Tower Mid Level|0|205|3366|-1851|2262|1223|5510|0|0|1.3|0
 000198F1|DmndSurgeryBasement01|Mega Surgery Center|0|1638|-598|1015|2262|-963|-233|1800|-500|1.5|0
 0001B0F7|VaultTecOffice01|Vault-Tec Regional HQ|0|2832|-1140|1717|3948|-2540|259|0|0|1.0|0
-0001F398|SanctuaryRosaHouse|Rosa Residence|0|16|80|-320|352|-352|512|0|0|1.0|0
 0001FA25|CambridgePD01|Cambridge Police Station|0|2568|3268|848|4288|1728|4808|0|0|1.0|0
 0001FBA6|CombatZone01|Combat Zone|0|9329|2011|7539|11120|-505|4527|0|0|1.0|0
 000225EF|GoodneighborOldStateHouse|Old State House|0|1898|294|596|3200|-436|1024|0|0|1.0|0
@@ -24782,7 +24726,6 @@ TheCastle01|Mirelurk|100.0|1
 0002F73C|GNN02|Gunners Plaza Basement|0|-1248|-950|-3659|1162|-3392|1491|0|0|1.0|0
 000317D0|WaldenPond01|Gift Shop Basement|0|2195|1217|-196|4586|-507|2941|0|0|1.0|0
 000320A2|SuperDuperMart01|Super Duper Mart|0|199|5|-2883|3281|-3006|3016|0|0|1.2|0
-000336E8|ThicketExcavations01|Thicket Excavations|0|2046|2192|1280|2812|1572|2813|0|0|1.0|0
 000342CB|HalluciGen01|HalluciGen, Inc.|0|-4608|1296|-6528|-2688|-512|3105|0|0|1.0|0
 0003430D|MiltonGeneral01|Milton General Hospital|0|-357|1939|-2756|2041|38|3840|0|0|1.0|0
 00035E6F|REObject02Interior|Bomb Shelter|0|2174|2672|1977|2372|1994|3350|0|0|1.0|0
@@ -24832,7 +24775,7 @@ TheCastle01|Mirelurk|100.0|1
 000503C6|GwinnettBrewery02|Gwinnett Main Brewery|0|-372|3426|-3008|2263|1311|5542|0|0|1.0|0
 00050C34|PoseidonEnergy02|Poseidon Energy Sublevels|0|320|1088|-1600|2240|-1472|3648|0|0|1.0|0
 000517B3|CambridgeScienceCenter01|Science Center Gift Shop|0|-564|184|-1107|-21|-359|727|0|0|1.0|0
-0005226E|Vault81Secret|Secret Vault 81|0|5506|-7026|2097|8916|-12228|-1824|0|0|1.0|0
+0005226E|Vault81Secret|Secret Vault 81|0|5506|-7026|2097|8916|-12228|-1824|0|-700|1.3|0
 000532B6|NationalGuardTrainingYard01|National Guard Recruitment Office|0|2177|2358|1375|2980|1116|3601|0|0|1.0|0
 00053834|PoseidonReservoir01|Poseidon Reservoir|0|2525|2797|-1525|6576|827|4767|-2400|0|2.0|0
 00054BD5|Goodneighbor|Goodneighbor|1|15161|-10355|2560|27763|-20320|-390|0|0|1.0|0
@@ -24934,7 +24877,6 @@ TheCastle01|Mirelurk|100.0|1
 000E8D80|ElevTransPub|Elevator|0|4|65|-58|66|-62|192|0|-800|1.0|0
 000EBE92|BostonPublicLibrary01|Copley Station|0|3456|6009|-3200|10112|4160|7858|0|0|1.5|0
 000EBE93|BostonPublicLibrary02|Boston Public Library|0|1296|4422|-2419|5011|694|8150|0|0|1.0|0
-000ECCFD|PrewarTVStudio|Colonial's Department Store|0|136|571|-601|873|133|1010|500|0|1.0|0
 000ECE80|BunkerHill01|Utility Basement|0|724|-1319|-1094|2543|-2966|328|0|0|1.0|0
 000F4BF4|MassFusion01|Mass Fusion Building|0|768|-256|-768|2304|-2048|1536|0|0|1.0|0
 000F7C51|ElevTransHiTech|Elevator|0|4|72|-48|56|-48|192|0|-800|1.0|0
@@ -25055,4 +24997,4 @@ TheCastle01|Mirelurk|100.0|1
 01053C58|NukaWorldMarket|Nuka-Town Market|1|981|-18351|-2549|4511|-21672|-15030|0|0|1.0|7
 01054271|DLC03POIBasementArmory|Basement Armory|0|3038|2670|2396|3680|1968|3372|0|0|1.0|4
 ==Instance IDs Count Vs Distinct==
-1762968|1762306
+1762722|1762060

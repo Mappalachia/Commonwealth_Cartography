@@ -50,10 +50,13 @@ unit _commonwealthCartography_lib;
 	begin
 		if 	(spaceName = '') or
 			(spaceEditorID = '') or
-			(spaceEditorID = 'DiamondCityFX') or // These 3 cells appear normal, but only contain 1 entity
+			(spaceName = 'Quick Test Cell') or
+			(spaceEditorID = 'DiamondCityFX') or // These cells sound normal, but are empty and/or inaccessible
 			(spaceEditorID = 'ccTOSFO4001') or
 			(spaceEditorID = 'Vault111Start') or
-			(spaceName = 'Quick Test Cell') or
+			(spaceEditorID = 'ThicketExcavations01') or
+			(spaceEditorID = 'SanctuaryRosaHouse') or
+			(spaceEditorID = 'PrewarTVStudio') or
 
 			(pos('PackIn', spaceEditorID) <> 0) or
 			(pos('COPY', spaceEditorID) <> 0) or

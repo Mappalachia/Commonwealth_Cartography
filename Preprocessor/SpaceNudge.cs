@@ -481,12 +481,6 @@ namespace CommonwealthCartography
 						nudgeScale = 2f;
 						break;
 
-					case "PrewarTVStudio":
-						nudgeX = 500;
-						nudgeY = 0;
-						nudgeScale = 1f;
-						break;
-
 					case "PrydwenHull01":
 						nudgeX = 1000;
 						nudgeY = 0;
@@ -563,6 +557,12 @@ namespace CommonwealthCartography
 						nudgeX = -1000;
 						nudgeY = -1000;
 						nudgeScale = 1.5f;
+						break;
+
+					case "Vault81Secret":
+						nudgeX = 0;
+						nudgeY = -700;
+						nudgeScale = 1.3f;
 						break;
 
 					case "Waterfront02":
