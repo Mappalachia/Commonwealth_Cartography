@@ -397,6 +397,12 @@ namespace CommonwealthCartography
 						nudgeScale = 1.1f;
 						break;
 
+					case "Goodneighbor":
+						nudgeX = -2600;
+						nudgeY = 200;
+						nudgeScale = 2.3f;
+						break;
+
 					case "GoodneighborHotelRexford":
 						nudgeX = 800;
 						nudgeY = 800;

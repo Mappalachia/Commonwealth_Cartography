@@ -5,6 +5,7 @@ namespace ImageAssetChecker
 	internal class ImageAssetChecker
 	{
 		const int minMapSizeKB = 100;
+		const int minMapSizeKBWaterMask = 20;
 		const int maxMapSizeKBCell = 10000;
 		const int maxMapSizeKBWorldspace = 50000;
 		const int maxMarkerSizeKB = 50;
@@ -171,8 +172,9 @@ namespace ImageAssetChecker
 			long sizeInBytes = new FileInfo(expectedFile).Length;
 			long sizeInKB = sizeInBytes / 1024;
 			int maxFileSizeKB = isWorldSpace ? maxMapSizeKBWorldspace : maxMapSizeKBCell;
+			int minFileSizeKb = expectedFile.EndsWith("_waterMask.png") ? minMapSizeKBWaterMask : minMapSizeKB;
 
-			if (sizeInKB > minMapSizeKB && sizeInKB < maxFileSizeKB)
+			if (sizeInKB > minFileSizeKb && sizeInKB < maxFileSizeKB)
 			{
 				Console.WriteLine($"File size OK ({sizeInKB}KB)");
 			}
