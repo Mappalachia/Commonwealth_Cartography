@@ -1,11 +1,11 @@
 ==Database name== 
 commonwealth_cartography.db 
 ==SQLite version== 
-3.45.2 2024-03-12 11:06:23 d8cd6d49b46a395b13955387d05e9e1a2a47e54fb99f3c9b59835bbefad6af77 (64-bit)
+3.45.3 2024-04-15 13:34:05 8653b758870e6ef0c98d46b3ace27849054af85da891eb121e9aaa537f1e8355 (64-bit)
 ==Checksum== 
-d81c1310fb4ee967ea7b6c74b14ed1da
+db93a7de4ded1632ef635929e061d179
 ==File Size== 
-211533824 
+211542016 
 ==Tables== 
 Entity_Info      Map_Markers      Region           Standard_Search
 Game_Version     NPC_Search       Scrap_Search   
@@ -14,9 +14,9 @@ Lock_Levels      Position_Data    Space_Info
 Index_PositionData_CoverAll     Index_ScrapSearch_CompMagSpace
 Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace 
 ==Game Version==
-1.10.163.0
+1.10.980.0.1
 ==Mean Average X/Y/Z Coord==
--3.79508283211987|178.841153624905|1353.98640511663
+-3.43547987240239|179.449286305496|1353.99028835402
 ==Min/Max X/Y/Z Coord==
 -213381|316690|-235522|169181|-141089|27662
 ==100 most common xyz coordinates + count==
@@ -123,17 +123,17 @@ Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace
 ==Z outliers==
 49
 ==Average X Bounds Width==
-11.9332997489111
+11.9336403950919
 ==Average Y Bounds Width==
-9.21865047352901
+9.2190217554712
 ==Average Z Bounds Width==
-7.53328488553498
+7.5335862744642
 ==Average Z Rotation==
-2.02934779278865
+2.02944241570882
 ==Average display name string length==
-2.75597674658594
+2.92347114260164
 ==Average editorID string length==
-22.3343194248564
+22.3350416179404
 ==Map Markers==
 Commonwealth|AirfieldMarker|Boston Airport|48074|-3332
 Commonwealth|AirfieldMarker|Skylanes Flight 1665|-64854|-125006
@@ -551,7 +551,7 @@ NukaWorld|TownRuinsMarker|Nuka-Town USA|596|-21444
 NukaWorldAmphitheater|PackMarker|Bradberton Amphitheater|-2883|-18843
 NukaWorldMarket|TownRuinsMarker|Nuka-Town Market|478|-18702
 ==Total Unique entities==
-29065
+29068
 ==Regions==
 Space|Region|subRegions|maxVerts
 Commonwealth||1|5
@@ -732,8 +732,8 @@ CombatZone01||2409
 CombatZone01|Box|77
 CombatZone01|Line|2
 CombatZone01|Plane|7
-Commonwealth||707759
-Commonwealth|Box|6542
+Commonwealth||707770
+Commonwealth|Box|6543
 Commonwealth|Line|21
 Commonwealth|Plane|18
 Commonwealth|Sphere|140
@@ -774,7 +774,7 @@ DBTechHighSchool02|Plane|23
 DLC01FortHagenSatelliteArray01||7587
 DLC01FortHagenSatelliteArray01|Box|234
 DLC01FortHagenSatelliteArray01|Line|1
-DLC01Lair01||28002
+DLC01Lair01||27997
 DLC01Lair01|Box|444
 DLC01Lair01|Line|22
 DLC01Lair01|Sphere|1
@@ -1652,7 +1652,7 @@ CombatZone01|Advanced|1
 CombatZone01|Expert|1
 CombatZone01|Inaccessible|1
 CombatZone01|Novice 1|2
-Commonwealth||714072
+Commonwealth||714084
 Commonwealth|Advanced|116
 Commonwealth|Expert|80
 Commonwealth|Inaccessible|14
@@ -1695,7 +1695,7 @@ DLC01FortHagenSatelliteArray01||7819
 DLC01FortHagenSatelliteArray01|Advanced|4
 DLC01FortHagenSatelliteArray01|Expert|3
 DLC01FortHagenSatelliteArray01|Novice 1|1
-DLC01Lair01||28430
+DLC01Lair01||28425
 DLC01Lair01|Advanced|19
 DLC01Lair01|Expert|1
 DLC01Lair01|Inaccessible|1
@@ -3182,7 +3182,7 @@ Commonwealth|ASPC|749
 Commonwealth|BNDS|5013
 Commonwealth|BOOK|106
 Commonwealth|CONT|5352
-Commonwealth|DOOR|1309
+Commonwealth|DOOR|1312
 Commonwealth|FLOR|3537
 Commonwealth|FURN|6789
 Commonwealth|HAZD|862
@@ -3194,9 +3194,9 @@ Commonwealth|MSTT|14914
 Commonwealth|NOTE|31
 Commonwealth|NPC_|3723
 Commonwealth|PROJ|282
-Commonwealth|SCOL|34155
+Commonwealth|SCOL|34157
 Commonwealth|SOUN|879
-Commonwealth|STAT|590073
+Commonwealth|STAT|590080
 Commonwealth|TACT|11
 Commonwealth|TERM|142
 Commonwealth|TXST|13369
@@ -3409,7 +3409,7 @@ DLC01Lair01|FURN|114
 DLC01Lair01|HAZD|10
 DLC01Lair01|IDLM|107
 DLC01Lair01|KEYM|2
-DLC01Lair01|LIGH|1082
+DLC01Lair01|LIGH|1077
 DLC01Lair01|MISC|570
 DLC01Lair01|MSTT|851
 DLC01Lair01|NOTE|4
@@ -8493,7 +8493,7 @@ CombatZone01|TheCombatZone01ToExtMain001|1
 CombatZone01|TommyCowerMarker|1
 CombatZone01|TommyRef|1
 CombatZone01|TommyRunMarker02|1
-Commonwealth||711152
+Commonwealth||711162
 Commonwealth|35CourtMapMarker|1
 Commonwealth|ADV017_DogTravelOutOfCommonwealthMarkerRef|1
 Commonwealth|AO_Comment_AbandonedRecently_1024_003|1
@@ -11519,6 +11519,8 @@ Commonwealth|V111ExtCompanionFailsafeDoorDUPLICATE000|1
 Commonwealth|V111FailsafeWarpMarker|1
 Commonwealth|V81_01TychoRunAwayMarker|1
 Commonwealth|VFTFarBeaconMarker|1
+Commonwealth|VLTTOSEntranceBlocker|1
+Commonwealth|VLTTOSNavCut|1
 Commonwealth|VSBloodbug|1
 Commonwealth|Vault111AlwaysEnableControlsTriggerREF|1
 Commonwealth|Vault111ElevatorDescendAgainTrigger|1
@@ -12032,7 +12034,7 @@ DLC01FortHagenSatelliteArray01|LightDLC01AssaultronHeadTrap03|1
 DLC01FortHagenSatelliteArray01|LightDLC01AssaultronHeadTrap04|1
 DLC01FortHagenSatelliteArray01|LightDLC01AssaultronHeadTrap05|1
 DLC01FortHagenSatelliteArray01|LightDLC01AssaultronHeadTrap06|1
-DLC01Lair01||28218
+DLC01Lair01||28213
 DLC01Lair01|AO_Comment_Dusty_512_012|1
 DLC01Lair01|AO_Comment_HighTech_512_008|1
 DLC01Lair01|DLC01CC_LitConsolePanels|1
@@ -18951,7 +18953,7 @@ CharlestownHouse01|100|324
 CharlestownLaundry|100|255
 CollegeSquare01|100|2713
 CombatZone01|100|2495
-Commonwealth|100|714509
+Commonwealth|100|714521
 ConcordCivicAccess01|100|1995
 ConcordFactory|100|598
 ConcordMuseum01|100|3414
@@ -18963,7 +18965,7 @@ CustomHouseTower01|100|174
 DBTechHighSchool01|100|7496
 DBTechHighSchool02|100|2418
 DLC01FortHagenSatelliteArray01|100|7827
-DLC01Lair01|100|28469
+DLC01Lair01|100|28464
 DLC03Acadia|100|3531
 DLC03AlderseaDaySpa01|100|1461
 DLC03BeaverCreekLanes01|100|2976
@@ -24997,4 +24999,4 @@ TheCastle01|Mirelurk|100.0|1
 01053C58|NukaWorldMarket|Nuka-Town Market|1|981|-18351|-2549|4511|-21672|-15030|0|0|1.0|7
 01054271|DLC03POIBasementArmory|Basement Armory|0|3038|2670|2396|3680|1968|3372|0|0|1.0|4
 ==Instance IDs Count Vs Distinct==
-1762722|1762060
+1762729|1762067
