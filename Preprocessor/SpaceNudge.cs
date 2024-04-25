@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace CommonwealthCartography
 {
@@ -395,6 +395,12 @@ namespace CommonwealthCartography
 						nudgeX = -100;
 						nudgeY = 0;
 						nudgeScale = 1.1f;
+						break;
+
+					case "Goodneighbor":
+						nudgeX = -2600;
+						nudgeY = 200;
+						nudgeScale = 2.3f;
 						break;
 
 					case "GoodneighborHotelRexford":

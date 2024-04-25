@@ -249,13 +249,6 @@ namespace CommonwealthCartography
 		public static Image GetImageForSpace(Space space)
 		{
 			string editorID = space.editorID;
-
-			// Temp hack while fo76utils is unable to render worldspaces without terrain
-			if (editorID == "Goodneighbor" || editorID == "DLC03VRWorldspace" || editorID == "NukaWorldMarket")
-			{
-				return EmptyMapBackground();
-			}
-
 			string filePath = imgFolder + (space.IsWorldspace() ? string.Empty : "\\cell\\");
 			string fileName = editorID + MapFileExtension;
 

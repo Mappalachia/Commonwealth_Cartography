@@ -639,7 +639,7 @@ namespace CommonwealthCartography
 			// viaKoFiToolStripMenuItem
 			// 
 			viaKoFiToolStripMenuItem.Name = "viaKoFiToolStripMenuItem";
-			viaKoFiToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			viaKoFiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			viaKoFiToolStripMenuItem.Text = "Via Ko-Fi";
 			viaKoFiToolStripMenuItem.ToolTipText = "Support the project via Ko-Fi.";
 			viaKoFiToolStripMenuItem.Click += Donate_ViaKoFi;
@@ -647,7 +647,7 @@ namespace CommonwealthCartography
 			// donatePatreonMenuItem
 			// 
 			donatePatreonMenuItem.Name = "donatePatreonMenuItem";
-			donatePatreonMenuItem.Size = new System.Drawing.Size(134, 22);
+			donatePatreonMenuItem.Size = new System.Drawing.Size(180, 22);
 			donatePatreonMenuItem.Text = "Via Patreon";
 			donatePatreonMenuItem.ToolTipText = "Support the project via Patreon.";
 			donatePatreonMenuItem.Click += Donate_ViaPatreon;
@@ -655,9 +655,9 @@ namespace CommonwealthCartography
 			// donatePayPalMenuItem
 			// 
 			donatePayPalMenuItem.Name = "donatePayPalMenuItem";
-			donatePayPalMenuItem.Size = new System.Drawing.Size(134, 22);
+			donatePayPalMenuItem.Size = new System.Drawing.Size(180, 22);
 			donatePayPalMenuItem.Text = "Via PayPal";
-			donatePayPalMenuItem.ToolTipText = "Support the project via Patreon.";
+			donatePayPalMenuItem.ToolTipText = "Support the project via PayPal.";
 			donatePayPalMenuItem.Click += Donate_ViaPayPal;
 			// 
 			// joinDiscordMenuItem
@@ -1299,7 +1299,7 @@ namespace CommonwealthCartography
 			// pictureBoxMapPreview
 			// 
 			pictureBoxMapPreview.Anchor = System.Windows.Forms.AnchorStyles.None;
-			pictureBoxMapPreview.Location = new System.Drawing.Point(-14, 0);
+			pictureBoxMapPreview.Location = new System.Drawing.Point(-15, 0);
 			pictureBoxMapPreview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			pictureBoxMapPreview.Name = "pictureBoxMapPreview";
 			pictureBoxMapPreview.Size = new System.Drawing.Size(820, 820);
