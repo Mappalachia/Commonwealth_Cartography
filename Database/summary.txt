@@ -1,9 +1,9 @@
 ==Database name== 
 commonwealth_cartography.db 
 ==SQLite version== 
-3.45.3 2024-04-15 13:34:05 8653b758870e6ef0c98d46b3ace27849054af85da891eb121e9aaa537f1e8355 (64-bit)
+3.46.0 2024-05-23 13:25:27 96c92aba00c8375bc32fafcdf12429c58bd8aabfcadab6683e35bbb9cdebf19e (64-bit)
 ==Checksum== 
-db93a7de4ded1632ef635929e061d179
+9d5414d2705c245b79a2c6af10428e8c
 ==File Size== 
 211542016 
 ==Tables== 
@@ -14,7 +14,7 @@ Lock_Levels      Position_Data    Space_Info
 Index_PositionData_CoverAll     Index_ScrapSearch_CompMagSpace
 Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace 
 ==Game Version==
-1.10.980.0.1
+1.10.984.0.0
 ==Mean Average X/Y/Z Coord==
 -3.43547987240239|179.449286305496|1353.99028835402
 ==Min/Max X/Y/Z Coord==
@@ -123,7 +123,7 @@ Index_PositionData_SpaceXYZ     Index_StandardSearch_RefSpace
 ==Z outliers==
 49
 ==Average X Bounds Width==
-11.9336403950919
+11.9336398277898
 ==Average Y Bounds Width==
 9.2190217554712
 ==Average Z Bounds Width==
