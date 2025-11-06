@@ -6,7 +6,7 @@ namespace Mappalachia
 {
 	static class UpdateChecker
 	{
-		static string UserAgent { get; } = "AHeroicLlama/Mappalachia";
+		static string UserAgent { get; } = "Mappalachia/Commonwealth_Cartography";
 
 		static TaskDialogButton GetViewReleasesButton()
 		{
@@ -115,7 +115,7 @@ namespace Mappalachia
 				buttonSkipThisVersion.Click += (sender, e) => { settings.LastDeclinedUpdateVersion = latestVersion; };
 				buttonRemindMeLater.Click += (sender, e) => { settings.LastDeclinedUpdateVersion = null; };
 
-				page.Heading = $"A new Mappalachia version, {latestVersion} is available.";
+				page.Heading = $"A new Commonwealth Cartography version, {latestVersion} is available.";
 				page.Text = patchNotes;
 				page.DefaultButton = buttonRemindMeLater;
 				page.Buttons =

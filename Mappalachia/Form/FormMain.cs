@@ -373,7 +373,7 @@ namespace Mappalachia
 
 			// Disable some now unavailable settings, for clarity
 			backgroundNormalToolStripMenuItem.Enabled = Settings.Space.IsWorldspace;
-			backgroundMilitaryToolStripMenuItem.Enabled = Settings.Space.IsAppalachia();
+			backgroundMilitaryToolStripMenuItem.Enabled = Settings.Space.IsCommonwealth();
 
 			highlightWaterToolStripMenuItem.Enabled = Settings.Space.IsWorldspace;
 			mapMapMarkersToolStripMenuItem.Enabled = Settings.Space.IsWorldspace;

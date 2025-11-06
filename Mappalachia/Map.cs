@@ -627,12 +627,6 @@ namespace Mappalachia
 						continue;
 					}
 
-					// If the plot is flux but the target space isn't nukable - skip
-					if (item.Entity is DerivedRawFlux && !teleporter.TeleportsTo!.IsNukable())
-					{
-						continue;
-					}
-
 					List<Instance> instances = await Database.GetInstances(item, teleporter.TeleportsTo);
 
 					if (instances.Count == 0)
@@ -832,7 +826,7 @@ namespace Mappalachia
 				text += " (Instanced)";
 			}
 
-			text += $"\nGame Version {await Database.GetGameVersion()} | Made with Mappalachia: github.com/AHeroicLlama/Mappalachia";
+			text += $"\nGame Version {await Database.GetGameVersion()} | Made with Commonwealth Cartography: github.com/Mappalachia/Commonwealth_Cartography";
 			RectangleF textBounds = new RectangleF(0, 0, MapImageResolution, MapImageResolution);
 
 			DrawStringWithDropShadow(graphics, text, font, BrushGenericTransparent, textBounds, BottomRight);

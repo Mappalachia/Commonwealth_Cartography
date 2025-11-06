@@ -287,7 +287,7 @@ namespace Mappalachia
 			Directory.CreateDirectory(Paths.TempPath);
 
 			ImageFormat format = ImageFormat.Jpeg;
-			string path = Paths.TempPath + "Mappalachia_Temp_" + GetDateTimeString() + format.GetFileExtension();
+			string path = Paths.TempPath + "CommonwealthCartography_Temp_" + GetDateTimeString() + format.GetFileExtension();
 
 			Save(image, format, path, 100);
 
@@ -338,7 +338,7 @@ namespace Mappalachia
 
 			if (fileName.IsNullOrWhiteSpace())
 			{
-				fileName = $"Mappalachia Map of {settings.Space.DisplayName}".SanitizeForFileName();
+				fileName = $"Commonwealth Cartography Map of {settings.Space.DisplayName}".SanitizeForFileName();
 			}
 
 			return fileName;

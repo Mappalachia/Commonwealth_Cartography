@@ -6,7 +6,7 @@ namespace Mappalachia
 	{
 		public static bool SpotlightInstallationPromptShown { get; private set; } = false;
 
-		public static void GenericError(string summary, string body, Exception? exception = null, string title = "Mappalachia: Error")
+		public static void GenericError(string summary, string body, Exception? exception = null, string title = "Commonwealth Cartography: Error")
 		{
 			if (Mappalachia.GUILaunched)
 			{
@@ -149,9 +149,9 @@ namespace Mappalachia
 
 			TaskDialogPage page = new TaskDialogPage
 			{
-				Caption = "Mappalachia",
+				Caption = "Commonwealth Cartography",
 				Heading = "Unexpected error",
-				Text = $"An unexpected error has occurred and Mappalachia must close.\n" +
+				Text = $"An unexpected error has occurred and Commonwealth Cartography must close.\n" +
 				$"If this keeps happening, please ensure you have properly unzipped all files from the latest release.\n" +
 				$"If you need support, join our Discord with the button below.\n\n" +
 				$"Error details:\n{exception.Message}",

@@ -25,15 +25,15 @@ namespace Mappalachia
 			}
 		}
 
-		public static Uri LatestReleaseAPI { get; } = new Uri("https://api.github.com/repos/AHeroicLlama/Mappalachia/releases/latest");
+		public static Uri LatestReleaseAPI { get; } = new Uri("https://api.github.com/repos/Mappalachia/Commonwealth_Cartography/releases/latest");
 
-		public static Uri GitHub { get; } = new Uri("https://github.com/AHeroicLlama/Mappalachia");
+		public static Uri GitHub { get; } = new Uri("https://github.com/Mappalachia/Commonwealth_Cartography");
 
-		public static Uri Releases { get; } = new Uri("https://github.com/AHeroicLlama/Mappalachia/releases");
+		public static Uri Releases { get; } = new Uri("https://github.com/Mappalachia/Commonwealth_Cartography/releases");
 
-		public static Uri HelpDocs { get; } = new Uri("https://github.com/AHeroicLlama/Mappalachia#user-guides");
+		public static Uri HelpDocs { get; } = new Uri("https://github.com/Mappalachia/Commonwealth_Cartography#user-guides");
 
-		public static Uri SpotlightInstallationGuide { get; } = new Uri("https://github.com/AHeroicLlama/Mappalachia/blob/master/Docs/User/Spotlight.md#installing-spotlight");
+		public static Uri SpotlightInstallationGuide { get; } = new Uri("https://github.com/Mappalachia/Commonwealth_Cartography/blob/master/Docs/User/Spotlight.md#installing-spotlight");
 
 		public static Uri DonatePaypal { get; } = new Uri("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TDVKFJ97TFFVC&source=url");
 	}

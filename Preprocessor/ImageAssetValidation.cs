@@ -66,8 +66,8 @@ namespace Preprocessor
 				}
 			}
 
-			// Count 3 files per worldspace, plus 1 extra for Appalachia for the "military" map
-			int expectedWorldspaceImageFiles = (spaces.Where(space => space.IsWorldspace).Count() * 3) + spaces.Where(space => space.IsAppalachia()).Count();
+			// Count 3 files per worldspace
+			int expectedWorldspaceImageFiles = (spaces.Where(space => space.IsWorldspace).Count() * 3);
 			int actualWorldspaceImageFiles = Directory.GetFiles(WorldPath).Length;
 
 			if (actualWorldspaceImageFiles != expectedWorldspaceImageFiles)
@@ -364,19 +364,6 @@ namespace Preprocessor
 
 				ValidateImageDimensions(watermaskFilePath);
 				ValidateImageDimensions(menuMapPath);
-
-				// Appalachia specifically also has the 'military' map
-				if (space.IsAppalachia())
-				{
-					string militaryMapPath = WorldPath + space.EditorID + BackgroundMilitaryAddendum + BackgroundImageFileType;
-
-					if (!ValidateSpaceImageExists(space, militaryMapPath))
-					{
-						return;
-					}
-
-					ValidateImageDimensions(militaryMapPath);
-				}
 			}
 		}
 

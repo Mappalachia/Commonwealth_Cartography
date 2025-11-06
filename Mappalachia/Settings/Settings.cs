@@ -65,7 +65,7 @@ namespace Mappalachia
 				catch (Exception e)
 				{
 					File.Delete(Paths.SettingsPath);
-					Notify.GenericError("Error loading settings from file", "Mappalachia was unable to load your last settings from the settings file.\nThe settings have been reset.", e);
+					Notify.GenericError("Error loading settings from file", "Commonwealth Cartography was unable to load your last settings from the settings file.\nThe settings have been reset.", e);
 					return new Settings();
 				}
 			}
@@ -97,7 +97,7 @@ namespace Mappalachia
 		// Check for and amend settings which shouldn't be used together
 		public void ResolveConflictingSettings()
 		{
-			if (MapSettings.BackgroundImage == BackgroundImageType.Military && !Space.IsAppalachia())
+			if (MapSettings.BackgroundImage == BackgroundImageType.Military && !Space.IsCommonwealth())
 			{
 				MapSettings.BackgroundImage = BackgroundImageType.Menu;
 			}

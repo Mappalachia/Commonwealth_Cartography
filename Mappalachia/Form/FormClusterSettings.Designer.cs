@@ -92,7 +92,6 @@ namespace Mappalachia
 			labelClusterRange.TabIndex = 0;
 			labelClusterRange.Text = "Cluster Radius (XXXXX)";
 			toolTipClusterSettings.SetToolTip(labelClusterRange, "The maximum 'search' range in game units that each cluster will extend.");
-			labelClusterRange.MouseClick += LabelClusterRange_MouseClick;
 			// 
 			// trackBarClusterMinWeight
 			// 

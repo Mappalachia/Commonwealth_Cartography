@@ -35,7 +35,6 @@ namespace Mappalachia
 			results.AddRange(await ContainerSearch(settings, searchTerm, allSpacesClause, searchForFormID));
 			results.AddRange(await ScrapSearch(settings, searchTerm, allSpacesClause));
 			results.AddRange(await NPCSearch(settings, searchTerm, allSpacesClause));
-			results.AddRange(await FluxSearch(settings, searchTerm, allSpacesClause));
 			results.AddRange(await RegionSearch(settings, searchTerm, allSpacesClause, searchForFormID));
 			results.AddRange(await TeleportsToSearch(settings, searchTerm, allSpacesClause, searchForFormID));
 			results.AddRange(await InstanceSearch(searchTerm, searchForFormID));
@@ -188,40 +187,6 @@ namespace Mappalachia
 			return results;
 		}
 
-		static async Task<List<GroupedSearchResult>> FluxSearch(Settings settings, string searchTerm, string optionalSpaceClause)
-		{
-			List<GroupedSearchResult> results = new List<GroupedSearchResult>();
-
-			if (!settings.SearchSettings.ShouldSearchForRawFlux())
-			{
-				return results;
-			}
-
-			string substituteSearch = SubstituteFlux.Replace(searchTerm, string.Empty).Trim();
-
-			string query = "SELECT color, spaceFormID, SUM(count) AS properCount " +
-				"FROM Flux " +
-				"JOIN Position_PreGrouped ON Position_PreGrouped.referenceFormID = Flux.referenceFormID " +
-				$"WHERE (color LIKE '%{searchTerm}%' ESCAPE '{EscapeChar}' " +
-				$"OR color LIKE '%{substituteSearch}%' ESCAPE '{EscapeChar}') " +
-				optionalSpaceClause +
-				"GROUP BY spaceFormID, color;";
-
-			using SqliteDataReader reader = await GetReader(Connection, query);
-
-			while (reader.Read())
-			{
-				results.Add(new GroupedSearchResult(
-					new DerivedRawFlux(reader.GetFluxColor()),
-					GetSpaceByFormID(reader.GetUInt("spaceFormID")),
-					reader.GetInt("properCount")));
-			}
-
-			results = results.Where(r => r.Space.IsNukable()).ToList();
-
-			return results;
-		}
-
 		static async Task<List<GroupedSearchResult>> RegionSearch(Settings settings, string searchTerm, string optionalSpaceClause, bool searchForFormID)
 		{
 			List<GroupedSearchResult> results = new List<GroupedSearchResult>();
@@ -370,10 +335,6 @@ namespace Mappalachia
 			else if (searchResult.Entity is DerivedNPC)
 			{
 				instances.AddRange(await GetNPCInstances(searchResult, space));
-			}
-			else if (searchResult.Entity is DerivedRawFlux)
-			{
-				instances.AddRange(await GetFluxInstances(searchResult, space));
 			}
 
 			return instances;
@@ -614,43 +575,6 @@ namespace Mappalachia
 					LockLevel.None,
 					null,
 					searchResult.SpawnWeight));
-			}
-
-			return instances;
-		}
-
-		// Returns the instances of a GroupedSearchResult which has an Entity of DerivedRawFlux
-		static async Task<List<Instance>> GetFluxInstances(GroupedSearchResult searchResult, Space space)
-		{
-			List<Instance> instances = new List<Instance>();
-
-			string query = "SELECT x, y, z, Position.instanceFormID FROM Position " +
-				$"JOIN Flux ON Flux.referenceFormID = Position.referenceFormID " +
-				$"WHERE Flux.Color = '{((DerivedRawFlux)searchResult.Entity).Color}' AND spaceFormID = {space.FormID}";
-
-			using SqliteDataReader reader = await GetReader(Connection, query);
-
-			while (reader.Read())
-			{
-				instances.Add(new Instance(
-					searchResult.Entity,
-					space,
-					reader.GetCoord(),
-					reader.GetUInt("instanceFormID"),
-					searchResult.Label,
-					null,
-					LockLevel.None,
-					null,
-					searchResult.SpawnWeight));
-			}
-
-			// Find the Non-nukable zone(s), and exclude instances which lie within them
-			foreach (string regionEditorID in space.GetNonNukableZoneEditorIds())
-			{
-				Instance regionInstance = (await GetRegion(regionEditorID, space)) ?? throw new Exception($"No Region with editorID {regionEditorID} found");
-				Library.Region nonNukableZone = (Library.Region)regionInstance.Entity;
-
-				instances = instances.Where(i => !nonNukableZone.ContainsPoint(i.Coord)).ToList();
 			}
 
 			return instances;

@@ -102,29 +102,5 @@ namespace Mappalachia
 				await FormMain.ClusterSettingsLiveUpdate(ClusterSettings);
 			}
 		}
-
-		private void LabelClusterRange_MouseClick(object sender, MouseEventArgs e)
-		{
-			if (e.Button != MouseButtons.Right)
-			{
-				return;
-			}
-
-			if (!FormMain.Settings.Space.IsNukable() || trackBarClusterRange.Maximum < Map.BlastRadius)
-			{
-				return;
-			}
-
-			ContextMenuStrip contextMenu = new ContextMenuStrip();
-			ToolStripMenuItem setToNukerange = new ToolStripMenuItem() { Text = "Set to Nuke blast zone radius" };
-
-			setToNukerange.Click += (s, args) =>
-			{
-				trackBarClusterRange.Value = Map.BlastRadius;
-			};
-
-			contextMenu.Items.Add(setToNukerange);
-			contextMenu.Show(this, e.Location);
-		}
 	}
 }

@@ -45,7 +45,6 @@ namespace Library
 	[JsonPolymorphic(TypeDiscriminatorPropertyName = "EntityChildType")]
 	[JsonDerivedType(typeof(DerivedNPC), "DerivedNPC")]
 	[JsonDerivedType(typeof(DerivedScrap), "DerivedScrap")]
-	[JsonDerivedType(typeof(DerivedRawFlux), "DerivedRawFlux")]
 	[JsonDerivedType(typeof(Region), "Region")]
 	public class Entity(uint formID, string editorID, string displayName, Signature signature)
 	{
