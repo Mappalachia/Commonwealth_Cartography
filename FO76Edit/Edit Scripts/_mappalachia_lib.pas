@@ -1,7 +1,9 @@
 // Mappalachia supporting functions - not to be run directly.
 unit _mappalachia_lib;
 
-	const targetESM = FileByIndex(0);
+	const esmNumber = 0;
+	const targetESM = FileByIndex(esmNumber);
+	const fileName = GetFileName(targetESM);
 
 	// Remove commas and replace them with something safe for CSV
 	function sanitize(input: String): String;
@@ -18,7 +20,7 @@ unit _mappalachia_lib;
 	// See: goToRipItem()
 	function processRecordGroup(signature, fileName: String): Integer;
 	const
-		outputFile = ProgramPath + 'Output\' + fileName + '.csv';
+		outputFile = ProgramPath + 'Output\' + fileName + '_' + IntToStr(esmNumber) + '.csv';
 		category = GroupBySignature(targetESM, signature);
 	var
 		i : Integer;
@@ -41,7 +43,6 @@ unit _mappalachia_lib;
 	begin
 			if(signature = 'MISC') then _mappalachia_scrap.ripItem(item)
 		else if(signature = 'LCTN') then _mappalachia_location.ripItem(item)
-		else if(signature = 'CMPO') then _mappalachia_component.ripItem(item)
 		else if(signature = 'REGN') then _mappalachia_region.ripItem(item)
 	end;
 end.

@@ -18,6 +18,7 @@
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<Description>The complete mapping tool for Fallout 4.
 Commonwealth Cartography is a Windows application for generating and exporting complex maps of entities within the Fallout 4 game world.</Description>
+	<AssemblyName>Commonwealth Cartography</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

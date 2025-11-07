@@ -8,7 +8,7 @@ unit _mappalachia_position;
 
 	procedure Initialize;
 	const
-		outputFile = ProgramPath + 'Output\Position.csv';
+		outputFile = ProgramPath + 'Output\Position_' + IntToStr(esmNumber) + '.csv';
 	begin
 		outputStrings := TStringList.Create;
 

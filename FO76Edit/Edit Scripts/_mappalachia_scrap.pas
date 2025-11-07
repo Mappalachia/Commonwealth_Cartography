@@ -13,18 +13,18 @@ unit _mappalachia_scrap;
 
 	procedure ripItem(item : IInterface);
 	const
-		MCQPEntry = ElementBySignature(item, 'MCQP');
+		CVPAEntry = ElementBySignature(item, 'CVPA');
 		formID = IntToStr(FixedFormId(item));
 	var
 		i : Integer;
 		currentComponent : IInterface;
 	begin
-		for i:= 0 to ElementCount(MCQPEntry) - 1 do begin
-			currentComponent := ElementByName(MCQPEntry, 'Component #' + IntToStr(i));
+		for i:= 0 to ElementCount(CVPAEntry) - 1 do begin
+			currentComponent := ElementByName(CVPAEntry, 'Component #' + IntToStr(i));
 			outputStrings.Add(
 				formID + ',' +
 				sanitize(GetEditValue(ElementByName(currentComponent, 'Component'))) + ',' +
-				sanitize(GetEditValue(ElementByName(currentComponent, 'Component Count Keyword')))
+				sanitize(GetEditValue(ElementByName(currentComponent, 'Count')))
 			);
 		end;
 	end;
