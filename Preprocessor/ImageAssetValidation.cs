@@ -67,7 +67,7 @@ namespace Preprocessor
 			}
 
 			// Count 3 files per worldspace
-			int expectedWorldspaceImageFiles = (spaces.Where(space => space.IsWorldspace).Count() * 3);
+			int expectedWorldspaceImageFiles = spaces.Where(space => space.IsWorldspace).Count() * 3;
 			int actualWorldspaceImageFiles = Directory.GetFiles(WorldPath).Length;
 
 			if (actualWorldspaceImageFiles != expectedWorldspaceImageFiles)

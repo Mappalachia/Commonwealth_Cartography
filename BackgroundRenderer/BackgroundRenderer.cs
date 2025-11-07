@@ -115,7 +115,7 @@ namespace BackgroundRenderer
 				string outputFile = TempPath + $"debug_{space.EditorID}.dds";
 
 				string renderCommand = $"{Fo76UtilsRenderPath} \"{GameESMPath}\" {outputFile} {resolution} {resolution} " +
-					$"\"{GameDataPath.WithoutTrailingSlash()}\" {(space.IsWorldspace ? $"-btd \"{GameTerrainPath}\"" : string.Empty)} " +
+					$"\"{GameDataPath.WithoutTrailingSlash()}\" " +
 					$"-w 0x{space.FormID.ToHex()} -l 0 -cam {scale} 180 0 0 {cameraX} {cameraY} {cameraZ} " +
 					$"-light 1.8 65 180 -rq 0 -scol 1 -ssaa 0 -ltxtres 64 -mlod 4 -xm effects";
 
@@ -213,7 +213,7 @@ namespace BackgroundRenderer
 				string outputFile = TempPath + $"debug_{space.EditorID}_Z{height}.dds";
 
 				string renderCommand = $"{Fo76UtilsRenderPath} \"{GameESMPath}\" {outputFile} {MapImageResolution} {MapImageResolution} " +
-					$"\"{GameDataPath.WithoutTrailingSlash()}\" {(space.IsWorldspace ? $"-btd \"{GameTerrainPath}\"" : string.Empty)} " +
+					$"\"{GameDataPath.WithoutTrailingSlash()}\" " +
 					$"-w 0x{space.FormID.ToHex()} -l 0 -cam {MapImageResolution / space.MaxRange} 180 0 0 {space.CenterX} {space.CenterY} {height} " +
 					$"-light 1.8 65 180 -rq 0 -scol 1 -ssaa 0 -ltxtres 64 -mlod 4 -xm effects";
 
@@ -250,11 +250,10 @@ namespace BackgroundRenderer
 			int renderResolution = space.IsWorldspace ? WorldspaceRenderResolution : MapImageResolution;
 			string ddsFile = TempPath + $"{space.EditorID}.dds";
 			string finalFile = (space.IsWorldspace ? WorldPath : CellPath) + space.EditorID + BackgroundImageFileType;
-			string terrainString = space.IsWorldspace ? $"-btd \"{GameTerrainPath}\" " : string.Empty;
 			double scale = renderResolution / space.MaxRange;
 
 			string renderCommand = $"{Fo76UtilsRenderPath} \"{GameESMPath}\" {ddsFile} {renderResolution} {renderResolution} " +
-				$"\"{GameDataPath.WithoutTrailingSlash()}\" {terrainString}" +
+				$"\"{GameDataPath.WithoutTrailingSlash()}\" " +
 				$"-w 0x{space.FormID.ToHex()} -l 0 -cam {scale} 180 0 0 {space.CenterX} {space.CenterY} {GetSpaceCameraHeight(space)} " +
 				$"-light 1.8 65 180 -lcolor 1.1 0xD6CCC7 0.9 -1 -1 -rq {1 + 2 + 12 + (space.IsWorldspace ? 0 : 32) + 256 + 1024} -ssaa 2 " +
 				$"-ltxtres 512 -tc 4096 -mc 64 -mip 1 -lmip 2 -mlod 0 -ndis 1 " +
@@ -276,7 +275,7 @@ namespace BackgroundRenderer
 				string waterMaskFinalFile = WorldPath + space.EditorID + WaterMaskAddendum + MaskImageFileType;
 
 				string waterMaskRenderCommand = $"{Fo76UtilsRenderPath} \"{GameESMPath}\" {waterMaskDDS} {renderResolution} {renderResolution} " +
-					$"\"{GameDataPath.WithoutTrailingSlash()}\" {terrainString} -w 0x{space.FormID.ToHex()} -l 0 -cam {scale} 180 0 0 {space.CenterX} {space.CenterY} {GetSpaceCameraHeight(space)} " +
+					$"\"{GameDataPath.WithoutTrailingSlash()}\" -w 0x{space.FormID.ToHex()} -l 0 -cam {scale} 180 0 0 {space.CenterX} {space.CenterY} {GetSpaceCameraHeight(space)} " +
 					$"-light 1 0 0 -ssaa 2 -watermask 1 -xm water " +
 					$"-xm " + string.Join(" -xm ", RenderExcludeModels);
 
@@ -371,7 +370,7 @@ namespace BackgroundRenderer
 				string finalFile = tile.GetFilePath();
 
 				string renderCommand = $"{Fo76UtilsRenderPath} \"{GameESMPath}\" {outputFile} {SpotlightTileSize} {SpotlightTileSize} " +
-					$"\"{GameDataPath.WithoutTrailingSlash()}\" {(space.IsWorldspace ? $"-btd \"{GameTerrainPath}\"" : string.Empty)} " +
+					$"\"{GameDataPath.WithoutTrailingSlash()}\" " +
 					$"-r {tile.XId * SpotlightScale} {tile.YId * SpotlightScale} {(tile.XId + 1) * SpotlightScale} {(tile.YId + 1) * SpotlightScale} " +
 					$"-w 0x{space.FormID.ToHex()} -l 0 -cam {scale} 180 0 0 {tile.XCenter} {tile.YCenter} {GetSpaceCameraHeight(space)} " +
 					$"-light 1.8 65 180 -lcolor 1.1 0xD6CCC7 0.9 -1 -1 -rq {1 + 2 + 12 + 32 + 256 + 1024} -ssaa 1 " +

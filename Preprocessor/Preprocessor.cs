@@ -121,10 +121,7 @@ namespace Preprocessor
 			SimpleQuery("CREATE TABLE MapMarker AS SELECT spaceFormID, x, y, referenceFormID as label, mapMarkerName as icon FROM Position WHERE mapMarkerName != '';");
 			TransformColumn(UnescapeCharacters, "MapMarker", "label");
 			SimpleQuery($"DELETE FROM MapMarker WHERE label IN {MapMarkersToRemove.ToSqliteCollection()};");
-			SimpleQuery(AddMissingMarkersQuery);
-			SimpleQuery(CorrectDuplicateMarkersQuery);
 			TransformColumn(CorrectLabelsByDict, "MapMarker", "label");
-			TransformColumn(CorrectFissureLabels, "MapMarker", "label");
 			TransformColumn(CorrectCommonBadLabels, "MapMarker", "label");
 			TransformColumn(GetCorrectedMarkerIcon, "MapMarker", "label", "icon");
 			AddForeignKey("MapMarker", "spaceFormID", "INTEGER", "Space", "spaceFormID");
@@ -336,7 +333,6 @@ namespace Preprocessor
 			// Create the Flux table
 			SimpleQuery("CREATE TABLE Flux (referenceFormID INTEGER, editorID STRING, color STRING);");
 			SimpleQuery("INSERT INTO Flux (referenceFormID, editorID) SELECT DISTINCT referenceFormID, editorID FROM Position JOIN Entity ON Entity.entityFormID = Position.referenceFormID;");
-			TransformColumn(GetFluxLoot, "Flux", "editorID", "color");
 			SimpleQuery("DELETE FROM Flux WHERE color = '';");
 			SimpleQuery("ALTER TABLE Flux DROP COLUMN editorID;");
 
