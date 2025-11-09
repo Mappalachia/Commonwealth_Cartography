@@ -26,7 +26,7 @@ namespace Library
 
 		public static Regex LockLevelRegex { get; } = new Regex(@"(Novice|Advanced|Expert|Master) \((Level [0-3])\)");
 
-		public static Regex ValidateLockLevel { get; } = new Regex("^(Level[0-3]|Chained|Inaccessible|RequiresKey|RequiresTerminal|Unknown|Barred)$");
+		public static Regex ValidateLockLevel { get; } = new Regex("^((Novice|Advanced|Expert|Master)(1|25)?|Chained|Inaccessible|RequiresKey|RequiresTerminal|Unknown|Barred)$");
 
 		public static Regex ValidatePrimitiveShape { get; } = new Regex("^(Box|Line|Plane|Sphere|Ellipsoid|Cylinder)$");
 
@@ -90,9 +90,63 @@ namespace Library
 			}
 		}
 
+		public static string? GetConvertedMarkerIcon(string iconName)
+		{
+			iconName = iconName.Replace(" ", string.Empty).Replace("-", string.Empty).Replace("/", string.Empty) + "Marker";
+
+			switch (iconName)
+			{
+				case "Gov'tBuildingMonumentMarker":
+					return "MonumentMarker";
+				case "MetroStationMarker":
+					return "MetroMarker";
+				case "OfficeCivicBuildingMarker":
+					return "OfficeMarker";
+				case "NaturalLandmarkMarker":
+					return "LandmarkMarker";
+				case "RuinsUrbanMarker":
+					return "UrbanRuinsMarker";
+				case "RuinsTownMarker":
+					return "TownRuinsMarker";
+				case "FactoryIndustrialSiteMarker":
+					return "FactoryMarker";
+				case "SewerUtilityTunnelsMarker":
+					return "SewerMarker";
+				case "SanctuaryMarker":
+					return "SancHillsMarker";
+				case "SwanPondMarker":
+					return "SwanPondMarker";
+				case "BrownstoneTownhouseMarker":
+					return "BrownstoneMarker";
+				case "LowRiseBuildingMarker":
+					return "LowRiseMarker";
+				case "MechanistLairRaidersettlementVassalsettlementPotentialVassalsettlementMarker":
+					return "MechanistMarker";
+				case "Custom66Marker":
+					return "RaiderSettlementMarker";
+				case "Custom70Marker":
+					return "GalacticMarker";
+				case "Custom73Marker":
+					return "MonorailMarker";
+				case "Custom74Marker":
+					return "RidesMarker";
+				case "Custom75Marker":
+					return "SafariMarker";
+				case "Custom78Marker":
+					return "DisciplesMarker";
+				case "Custom79Marker":
+					return "OperatorsMarker";
+				case "Custom80Marker":
+					return "PackMarker";
+				default:
+					return iconName;
+			}
+		}
+
 		// Values passed with the -xm argument to the render command
 		public static List<string> RenderExcludeModels { get; } = new List<string>()
 		{
+			"cloud",
 		};
 
 		// The Form ID of NorthMarker

@@ -115,7 +115,6 @@ namespace Preprocessor
 			ImportTableFromCSV("Location");
 			ImportTableFromCSV("Region");
 			ImportTableFromCSV("Scrap");
-			ImportTableFromCSV("Component");
 
 			// Pull the MapMarker data into a new table, then make some hardcoded amendments and corrections
 			SimpleQuery("CREATE TABLE MapMarker AS SELECT spaceFormID, x, y, referenceFormID as label, mapMarkerName as icon FROM Position WHERE mapMarkerName != '';");
@@ -124,6 +123,7 @@ namespace Preprocessor
 			TransformColumn(CorrectLabelsByDict, "MapMarker", "label");
 			TransformColumn(CorrectCommonBadLabels, "MapMarker", "label");
 			TransformColumn(GetCorrectedMarkerIcon, "MapMarker", "label", "icon");
+			TransformColumn(GetConvertedMarkerIcon, "MapMarker", "icon");
 			AddForeignKey("MapMarker", "spaceFormID", "INTEGER", "Space", "spaceFormID");
 
 			// Remove map marker remnants from Position table
@@ -267,11 +267,6 @@ namespace Preprocessor
 
 			TransformColumn(ReduceLockLevel, "Position", "lockLevel");
 
-			// Transform the component quantity keywords to numeric values from Scrap table, then drop the Component table
-			TransformColumn(GetComponentQuantity, "Scrap", "component", "componentQuantity", "componentQuantity");
-			ChangeColumnType("Scrap", "componentQuantity", "INTEGER");
-			SimpleQuery($"DROP TABLE Component;");
-
 			// Extract the NPC types and classes on Location from the raw 'property'
 			SimpleQuery("ALTER TABLE Location ADD COLUMN npcName TEXT;");
 			SimpleQuery("ALTER TABLE Location ADD COLUMN npcClass TEXT;");
@@ -329,12 +324,6 @@ namespace Preprocessor
 			SimpleQuery("ALTER TABLE Space ADD COLUMN northAngle REAL;");
 			TransformColumn(GetNorthAngle, "Space", "spaceFormID", "northAngle");
 			SimpleQuery("UPDATE Position SET rotZ = '' WHERE primitiveShape = '';"); // Delete rotZ data except for shapes
-
-			// Create the Flux table
-			SimpleQuery("CREATE TABLE Flux (referenceFormID INTEGER, editorID STRING, color STRING);");
-			SimpleQuery("INSERT INTO Flux (referenceFormID, editorID) SELECT DISTINCT referenceFormID, editorID FROM Position JOIN Entity ON Entity.entityFormID = Position.referenceFormID;");
-			SimpleQuery("DELETE FROM Flux WHERE color = '';");
-			SimpleQuery("ALTER TABLE Flux DROP COLUMN editorID;");
 
 			// Null empty rows which are not TEXT
 			SimpleQuery("UPDATE Position SET teleportsToFormID = NULL WHERE teleportsToFormID = '';");
@@ -433,7 +422,6 @@ namespace Preprocessor
 			AddToSummaryReport("Avg Container items per container", SimpleQuery("SELECT AVG(contentsCount) FROM (SELECT count(contentFormID) as contentsCount FROM Container GROUP BY ContainerFormID);"));
 			AddToSummaryReport("Avg Container quantity per item", SimpleQuery("SELECT AVG(quantity) FROM Container;"));
 			AddToSummaryReport("Unique Container count", SimpleQuery("SELECT count(DISTINCT containerFormID) FROM Container;"));
-			AddToSummaryReport("Flux-producing entities count", SimpleQuery("SELECT color, COUNT(*) FROM Flux GROUP BY color;"));
 			AddToSummaryReport("Non-standard NorthMarker counts", SimpleQuery(
 				"SELECT * FROM (" +
 					"SELECT spaceEditorID, COUNT(Position.spaceFormID) AS northMarkerCount FROM Position " +
@@ -523,7 +511,7 @@ namespace Preprocessor
 			Console.WriteLine($"Import {tableName} from CSV");
 
 			string path = SqlitePath;
-			List<string> args = new List<string>() { DatabasePath, ".mode csv", $".import {Fo76EditOutputPath}{tableName}.csv {tableName}" };
+			List<string> args = new List<string>() { DatabasePath, ".mode csv", $".import {Fo76EditOutputPath}{tableName}_0.csv {tableName}" }; // TODO TEMP
 
 			Process process = Process.Start(path, args);
 			process.WaitForExit();
@@ -540,7 +528,7 @@ namespace Preprocessor
 
 			SimpleQuery($"CREATE INDEX {tempIndex} ON {tableName} ({sourceColumn});", true);
 
-			string readQuery = $"SELECT {sourceColumn}, ROWID FROM {tableName}";
+			string readQuery = $"SELECT {sourceColumn}, ROWID FROM {tableName} ORDER BY ROWID";
 			string updateQuery = $"UPDATE {tableName} SET {targetColumn} = @new WHERE ROWID = @rowID";
 
 			Console.WriteLine($"Transform {tableName}.{sourceColumn} -> {targetColumn}: {method.Method.Name}");
@@ -583,7 +571,7 @@ namespace Preprocessor
 
 			SimpleQuery($"CREATE INDEX {tempIndex} ON {tableName} ({sourceColumnA}, {sourceColumnB});", true);
 
-			string readQuery = $"SELECT {sourceColumnA}, {sourceColumnB}, ROWID FROM {tableName}";
+			string readQuery = $"SELECT {sourceColumnA}, {sourceColumnB}, ROWID FROM {tableName} ORDER BY ROWID";
 			string updateQuery = $"UPDATE {tableName} SET {targetColumn} = @new WHERE ROWID = @rowID";
 
 			Console.WriteLine($"Transform {tableName}.{sourceColumnA},{sourceColumnB} -> {targetColumn}: {method.Method.Name}");
@@ -683,12 +671,6 @@ namespace Preprocessor
 			SimpleQuery("CREATE TABLE Space (spaceFormID INTEGER NOT NULL UNIQUE PRIMARY KEY, spaceEditorID TEXT NOT NULL UNIQUE, spaceDisplayName TEXT NOT NULL, isWorldspace INTEGER NOT NULL, isInstanceable INTEGER NOT NULL, centerX REAL NOT NULL, centerY REAL NOT NULL, maxRange REAL NOT NULL, northAngle REAL NOT NULL) STRICT;");
 			SimpleQuery("INSERT INTO Space (spaceFormID, spaceEditorID, spaceDisplayName, isWorldspace, isInstanceable, centerX, centerY, maxRange, northAngle) SELECT spaceFormID, spaceEditorID, spaceDisplayName, isWorldspace, isInstanceable, centerX, centerY, maxRange, northAngle FROM temp;");
 			SimpleQuery("DROP TABLE temp;");
-
-			SimpleQuery("CREATE TABLE temp AS SELECT * FROM Flux;");
-			SimpleQuery("DROP TABLE Flux;");
-			SimpleQuery("CREATE TABLE Flux (referenceFormID INTEGER NOT NULL UNIQUE PRIMARY KEY, color STRING NOT NULL);");
-			SimpleQuery("INSERT INTO Flux (referenceFormID, color) SELECT referenceFormID, color FROM temp;");
-			SimpleQuery("DROP TABLE temp;");
 		}
 
 		// Return the given string with custom escape sequences replaced
@@ -776,12 +758,6 @@ namespace Preprocessor
 			}
 
 			return QuotedTermRegex.Match(displayName).Groups[1].Value;
-		}
-
-		// Returns the numeric quantity of the component for the given quantity name
-		static string GetComponentQuantity(string component, string quantity)
-		{
-			return SimpleQuery($"SELECT \"{quantity}\" FROM Component where component = '{component}'", true, GetNewConnection()).First();
 		}
 
 		// Returns the total spawn weight of spawn pool for the class at the location

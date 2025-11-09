@@ -18,8 +18,6 @@ namespace Mappalachia
 
 		static Regex SubstituteNPC { get; } = new Regex("derived|spawn", RegexOptions.IgnoreCase);
 
-		static Regex SubstituteFlux { get; } = new Regex("derived|raw|flux", RegexOptions.IgnoreCase);
-
 		static char EscapeChar { get; } = '`';
 
 		// The core database search function - returns a collection of GroupedInstance from the given search params

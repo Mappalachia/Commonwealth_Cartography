@@ -14,6 +14,8 @@ namespace BackgroundRenderer
 
 		static int RenderParallelism { get; } = 16; // Max cells or spotlight tiles to render in parallel
 
+		static bool AskSpotlightQuestion { get; set; } = true;
+
 		static async Task Main()
 		{
 			Console.Title = "Commonwealth Cartography Background Renderer";
@@ -318,9 +320,9 @@ namespace BackgroundRenderer
 				tiles = tiles.Where(t => t.HasEntities().Result).ToList();
 			}
 
-			if (space.IsWorldspace)
+			if (space.IsWorldspace && AskSpotlightQuestion)
 			{
-				StdOutWithColor($"Depending on your hardware, Spotlight rendering an entire worldspace ({space.EditorID}) may take a few hours. Would you like to:\n1:Render the whole space\n2:Render only missing tiles\n3:Define a target area to render", ColorQuestion);
+				StdOutWithColor($"Depending on your hardware, Spotlight rendering an entire worldspace ({space.EditorID}) may take a few hours. Would you like to:\n1:Render the whole space\n2:Render only missing tiles\n3:Define a target area to render\n4:Render the whole space, and don't ask for other spaces.", ColorQuestion);
 
 				switch (Console.ReadKey().KeyChar)
 				{
@@ -348,6 +350,10 @@ namespace BackgroundRenderer
 							Math.Abs(t.YId - yCenter) <= radius)
 							.ToList();
 
+						break;
+
+					case '4':
+						AskSpotlightQuestion = false;
 						break;
 
 					default:

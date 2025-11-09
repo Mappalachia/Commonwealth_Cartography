@@ -162,7 +162,7 @@ unit _mappalachia_position;
 				GetEditValue(ElementByName(boundsEntry, 'Y')) + ',' +
 				GetEditValue(ElementByName(boundsEntry, 'Z')) + ',' +
 				FloatToStr(GetRotation(item).z) + ',' +
-				GetEditValue(ElementByName(ElementByName(item, 'Map Marker'), 'TNAM - Type')) + ',' +
+				GetEditValue(ElementByName(ElementBySignature(ElementByName(item, 'Map Marker'), 'TNAM'), 'Type')) + ',' +
 				sanitize(shortName) + ',' +
 				sanitize(GetEditValue(teleportTarget))
 				);

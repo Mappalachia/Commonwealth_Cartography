@@ -11,7 +11,7 @@
 Map marker extraction is optional, as map marker images are already stored in the repository. Additionally plot icons can be gathered from the `img\icon` folder of a release. You should only need to run this step if you believe the map marker icons have changed since a game release, or wish to regenerate plot icons. The image validation functionality of the Preprocessor will highlight if any necessary icon files are missing, but not if they have changed.
 
 ### Door Marker
-Separately from the map markers, there is another icon used for indicating items in other spaces, the door marker (`Assets\img\DoorMarker.svg`). The Map Icon Processor does not interact with this file, and it is not represented in the database, as it is not associated with any coordinates in-game, and is not expected to ever change. This file is already stored in the repository, however if you do need to re-extract it, it can be found at `C:\Program Files (x86)\Steam\steamapps\common\Fallout76\Data\SeventySix - Interface.ba2\interface\mapmarkerlibrary.swf\sprites\DefineSprite (442)`. These files can be opened and extracted from by using the process described in this document.
+Separately from the map markers, there is another icon used for indicating items in other spaces, the door marker (`Assets\img\DoorMarker.svg`). The Map Icon Processor does not interact with this file, and it is not represented in the database, as it is not associated with any coordinates in-game, and is not expected to ever change. This file is already stored in the repository, however if you do need to re-extract it, it can be found at `C:\Program Files (x86)\Steam\steamapps\common\Fallout76\Data\SeventySix - Interface.ba2\interface\Pipboy_MapPage.swf\sprites\DefineSprite (77)`. These files can be opened and extracted from by using the process described in this document.
 
 ## Process overview
 Fallout 76 uses SWF (Flash) to power most if its UIs, this includes the map menu and markers inside.<br/>
@@ -23,10 +23,9 @@ Launch BAE and hit 'File' > 'Open File', navigate to your Fallout 76 installatio
 Press 'extract' and select any temporary output folder. BAE should extract 100+ SWF files.<br/>
 
 ## Extracting SVG sprites from the SWF
-In your files extracted from BAE, under the `interface` folder, find and open the file `mapmarkerslibrary.swf` with JPEXS.<br/>
-Ensure you open `mapmarkerslibrary.swf`, not the similarly named `mapmarkerlibrary.swf`.<br/>
+In your files extracted from BAE, under the `interface` folder, find and open the file `Pipboy_MapPage.swf` with JPEXS.<br/>
 Some questions may appear, select 'Yes to all'.<br/>
-In JPEXS, on the left hand side displaying the contents of `mapmarkerslibrary.swf`, select the `sprites` folder.<br/>
+In JPEXS, on the left hand side displaying the contents of `Pipboy_MapPage.swf`, select the `sprites` folder.<br/>
 Under File > Export, select 'Export selection'. Ensure the file type is set as SVG, and the zoom is at 100%.<br/>
 Press OK and select the output location inside the cloned repository at `MapIconProcessor\extract\`, creating the `extract\` folder if it does not exist.<br/>
 If errors appear, select 'Ignore All'. The bottom-left of the window will indicate when the extract has finished.<br/>

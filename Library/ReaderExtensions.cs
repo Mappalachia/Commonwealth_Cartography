@@ -88,12 +88,5 @@ namespace Library
 
 			return Enum.Parse<Signature>(signature);
 		}
-
-		public static FluxColor GetFluxColor(this SqliteDataReader reader)
-		{
-			string color = reader.GetString("color");
-
-			return Enum.Parse<FluxColor>(color);
-		}
 	}
 }

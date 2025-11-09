@@ -89,11 +89,6 @@ namespace Mappalachia
 			return SelectedSignatures.Contains(Signature.MISC) && SelectedLockLevels.Contains(LockLevel.None);
 		}
 
-		public bool ShouldSearchForRawFlux()
-		{
-			return SelectedSignatures.Contains(Signature.ALCH) && SelectedLockLevels.Contains(LockLevel.None);
-		}
-
 		public bool ShouldSearchForRegion()
 		{
 			return SelectedSignatures.Contains(Signature.REGN) && SelectedLockLevels.Contains(LockLevel.None);
